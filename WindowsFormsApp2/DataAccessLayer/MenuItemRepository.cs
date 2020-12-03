@@ -25,7 +25,7 @@ namespace DataAccessLayer
 
                 while (dataReader.Read())
                 {
-                    MenuItem item = new MenuItem(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetDouble(3));
+                    MenuItem item = new MenuItem(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetDecimal(3));
 
                     menuItems.Add(item); //U listu smo dodali objekat koji sadrzi red iz tabele
                 }

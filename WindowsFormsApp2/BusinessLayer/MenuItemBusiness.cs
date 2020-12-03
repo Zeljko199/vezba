@@ -8,7 +8,7 @@ using DataAccessLayer.Models;
 
 namespace BusinessLayer
 {
-    class MenuItemBusiness
+    public class MenuItemBusiness
     {
         private readonly MenuItemRepository menuItemRepository;
         public MenuItemBusiness()
@@ -22,7 +22,7 @@ namespace BusinessLayer
         }
         public List<MenuItem> GetMenuItemsPrice(double min, double max)
         {
-            return menuItemRepository.GetAllMenuItems().Where(m => m.Price > min && m.Price < max).ToList();
+            return menuItemRepository.GetAllMenuItems().Where(m => Convert.ToDouble (m.Price) > min && Convert.ToDouble(m.Price) < max).ToList();
         }
 
         public int addMenuItem(MenuItem item)

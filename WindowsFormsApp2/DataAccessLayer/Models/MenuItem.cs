@@ -11,14 +11,18 @@ namespace DataAccessLayer.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public double Price { get; set; }
+        public decimal Price { get; set; }
 
-        public MenuItem(int id, string title, string description, double price)
+        public MenuItem(int id, string title, string description, decimal price)
         {
             Id = id;
             Title = title;
             Description = description;
             Price = price;
+        }
+        public override string ToString()
+        {
+            return Id + ". "+Title+" --> "+Description+" Cena: "+Price;
         }
     }
 }
