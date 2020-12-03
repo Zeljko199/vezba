@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    class MenuItemRepository
+    public class MenuItemRepository
     {
         public List<MenuItem> GetAllMenuItems()
         {
@@ -37,16 +37,15 @@ namespace DataAccessLayer
         {
             using (SqlConnection sqlConnection = new SqlConnection(Constants.connectionString))
             {
-            
-                int result = 0;
+
             sqlConnection.Open();
 
             SqlCommand command = new SqlCommand();
                 command.Connection = sqlConnection;
-                
-                command.CommandText=string.Format(
-                "INSERT INTO MenuItems VALUES ('{0}','{1}',{2},'{3}')",item.Id,item.Title,item.Description,item.Price)
 
+                command.CommandText = string.Format(
+                "INSERT INTO MenuItems VALUES ('{0}','{1}',{2},'{3}')", item.Id, item.Title, item.Description, item.Price);
+                int result = command.ExecuteNonQuery();
             return result;
             }
         }
